@@ -6,8 +6,8 @@
 # Author: García Prado, Sergio
 # Author: Fernández Angulo, Oscar
 
-
-dataset=csvread('./../datasets/machine.csv', 1, 0);
+dataset=csvread('./../datasets/machine.csv', 1, 2);
+# TODO nominalToNumeric discrete attrs?
 
 # Aislar x e y
 
@@ -57,7 +57,21 @@ x_test_ampliado(:, 2:size(x_test)(2)+1) = x_test;
 y_test=y_sort((hold_out_train+1):size(y)(1), 1:size(y)(2));
 
 
-w = simple_perceptron_k(x_ampliado, y)
+w=adaline_k(x_train_ampliado, y_train);
+
+
+# Salida REAL Test
+
+y_p=x_test_ampliado*w;
+
+#Error
+error_relativo=abs((y_test - y_p) ./ y_test).*100;
+
+# Tasa de Aciertos
+tasa_acierto_10=100*sum(error_relativo <= 10.0)/hold_out_test;
+
+# Tasa de Error
+tasa_fallo_10=100-tasa_acierto_10
 
 %{
 
