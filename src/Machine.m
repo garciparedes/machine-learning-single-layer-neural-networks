@@ -13,7 +13,7 @@ dataset=csvread('./../datasets/machine.csv', 1, 2);
 
 x=dataset(:,1:size(dataset)(2)-1);
 
-#x = x./ sqrt(sum(x.^2,1))
+x = x./ sqrt(sum(x.^2,1))
 
 x_ampliado = ones(size(x)(1), size(x)(2)+1);
 x_ampliado(:, 1)=ones(size(x_ampliado)(1), 1);
