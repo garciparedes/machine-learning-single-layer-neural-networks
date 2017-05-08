@@ -10,9 +10,9 @@ function w = adaline_k(x, y, seasons=5000, alpha = 0.1)
   for t = 1:seasons
     for i=1:size(x,1)
       p = (x(i,:) * w);
-      w = w + alpha * (y(i)-p) * x(i,:)';
+      w += alpha * (y(i)-p) * x(i,:)';
     end
-    t
+    t;
     w
   end
 end
