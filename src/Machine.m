@@ -1,17 +1,38 @@
 #
-# Name: Simple Perceptron
-# DataSet: simple
+# Name: Adaline
+# DataSet: machine
 # Subject: Tecnicas de Aprendizaje Automatico
 # Author: Calonge Cano, Teodoro
 # Author: García Prado, Sergio
 # Author: Fernández Angulo, Oscar
 
-dataset=csvread('./../datasets/machine.csv', 1, 2);
+
+
+[A,B,X1, X2, X3, X4, X5, X6, X7, X8] = textread('./../datasets/machine.csv', '%s%s%f%f%f%f%f%f%f%f', 'delimiter', ',', 'HeaderLines',1);
+
+a = zeros(size(A,1),1);
+for i = 1:size(A,1)
+  a(i) = strmatch(char(A(i,:)),unique(A), 'exact');
+end
+a_bin = a == unique(a)';
+
+
+b = zeros(size(B,1),1);
+for i = 1:size(B,1)
+  b(i) = strmatch(char(B(i,:)),unique(B), 'exact');
+end
+b_bin = b == unique(b)';
+
+
+dataset=horzcat(a_bin, b_bin, X1, X2, X3, X4, X5, X6, X7, X8);
+# dataset=csvread('./../datasets/machine.csv', 1, 2);
 # TODO nominalToNumeric discrete attrs?
 
 # Aislar x e y
 
 x=dataset(:,1:size(dataset)(2)-1);
+
+x = x./ sqrt(sum(x.^2,1));
 
 x_ampliado = ones(size(x)(1), size(x)(2)+1);
 x_ampliado(:, 1)=ones(size(x_ampliado)(1), 1);
