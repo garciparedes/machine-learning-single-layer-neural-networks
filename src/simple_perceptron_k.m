@@ -5,19 +5,16 @@
 # Author: García Prado, Sergio
 # Author: Fernández Angulo, Oscar
 
-function w = simple_perceptron_k(x, y)
-  # TODO
-  # TODO
-  # TODO
-  # TODO
-  # Change From 'Logistic Regression' Method to 'Simple Perceptron' Method
-
-
-  w = zeros( size(x,2),1);
-  nu = zeros(size(x,2),1);
-  s = zeros(size(x,1),1);
-  nu = 1 ./ (1 .+ e.^-(x * w));
-  s = (nu .* (1 .- nu));
-  w = inv(x' .* s' * x)*x'*(s'*x*w + y - nu);
-
+function w = simple_perceptron_k(x, y, bias, w=rand(size(x,2),1))
+  f = 0;
+  while f == 0
+    f = 1;
+    for i = 1:size(x,1)
+      d = signo((x(i,:) * w - bias));
+      if d ~= y(i)
+        w = w - (d - y(i))*x(i,:)';
+        f = 0;
+      end
+    end
+  end
 end
