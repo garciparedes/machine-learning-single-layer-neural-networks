@@ -12,7 +12,5 @@ function w = adaline_k(x, y, seasons=5000, alpha = 0.1)
       p = (x(i,:) * w);
       w += alpha * (y(i)-p) * x(i,:)';
     end
-    t;
-    w
   end
 end

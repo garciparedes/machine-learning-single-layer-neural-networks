@@ -78,7 +78,7 @@ x_test_ampliado(:, 2:size(x_test)(2)+1) = x_test;
 y_test=y_sort((hold_out_train+1):size(y)(1), 1:size(y)(2));
 
 
-w=adaline_k(x_train_ampliado, y_train);
+w=adaline_k(x_train_ampliado, y_train, 5000);
 
 
 # Salida REAL Test
