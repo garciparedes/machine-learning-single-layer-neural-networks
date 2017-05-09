@@ -17,8 +17,8 @@ def main():
 
     for index,row in data_w.iterrows():
         print(row)
-        plt.plot([-1, 2], [row[0] + -1*row[1]+row[2], row[0]+ 2*row[1]+row[2]])
-
+        plt.plot([-1, 2], [row[1] + -1*row[0], row[1]+ 2*row[0]])
+    plt.grid()
     plt.show()
 
 if __name__ == '__main__':
