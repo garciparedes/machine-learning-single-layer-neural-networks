@@ -52,7 +52,10 @@
 	\label{sec:e1}
 
 		\paragraph{}
-		[TODO]
+		En esta sección se describe el experimento realizado utilizando la estrategia del \emph{perceptrón simple}. El conjunto de datos utilizado se muestra en la tabla \ref{table:e1_dataset}. Este conjunto de datos posee la característica de ser linealmente separable, tal y como se verá a continuación. Está formado por \textbf{8 instancias} formadas por \textbf{2 atributos} de carácter numérico. La clase de destino también es de carácter numérico, formada por el conjunto de valores $D = \{1,-1\}$. Puesto que este conjunto está formado por dos categorías, entonces se puede utilizar un único clasificador binario (perceptrón simple en este caso) para clasificar las instancias.
+
+		\paragraph{}
+		En este caso, debido al reducido tamaño del conjunto de datos, se ha realizado un experimento basado en el error de resustitución. Por lo tanto, se ha utilizado el $100\%$ de las instancias, tando para entrenamiento como para test.
 
 		\begin{table}[H]
 			\centering
@@ -66,20 +69,25 @@
 				{\\\hline\one&\two&\three}
 				\\\hline
 			\end{tabu}
-			\caption{[TODO]}
+			\caption{Conjunto de datos Simple}
 			\label{table:e1_dataset}
 		\end{table}
 
+		\paragraph{}
+		Puesto que las el conjunto de datos es linealmente separable tal y como se ha indicado anteriormente (se puede apreciar en la figura \ref{fig:e1_plot}) y la metodología experimental seguida es se apoya en el error de resustitución. La tasa de error obtenida es del $0.0\%$ tal y como se muestra en la tabla \ref{table:e1_error}.
 
 		\begin{figure}[h]
 			\begin{center}
 				\includegraphics[width=0.75\textwidth]{simple-perceptron}
 			\end{center}
-			\caption{[TODO]}
+			\caption{Evolución de los pesos conforme aumenta el número de iteraciones}
 			\label{fig:e1_plot}
 		\end{figure}
 
-		\begin{table}
+		\paragraph{}
+		La figura \ref{fig:e1_plot} muestra la evolución del la recta que separa las dos clases de datos conforme aumentan las iteraciones. La línea en color \textbf{verde} se corresponde con la \textbf{iteración inicial}, la línea en color \textbf{verde} se corresponde con la \textbf{primera iteración} y, por último, la línea \textbf{púrpura} se corresponde con la \textbf{segunda iteración}. Nótese que en este punto las dos clases están separadas por dicha recta, por lo que el algoritmo ya está en codiciones de terminar.
+
+		\begin{table}[h]
 			\centering
 			\small
 			\begin{tabu}{ | c | c | }
@@ -88,7 +96,7 @@
 				Error de Resubstitucion & $0.0\%$	 \\
 				\hline
 			\end{tabu}
-			\caption{[]}
+			\caption{Resultados del experimento sobre el conjunto de datos Simple}
 			\label{table:e1_error}
 		\end{table}
 
