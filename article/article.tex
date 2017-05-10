@@ -32,9 +32,6 @@
 	\section{Introducción}
 	\label{sec:introducción}
 
-		\paragraph{}
-		[TODO]
-
 		\subsection{Perceptrón Simple}
 		\label{sec:simple_perceptron}
 
@@ -42,20 +39,39 @@
 			[TODO ]
 
 
+			\begin{figure}[h]
+				\centering
+				\inputminted{octave}{./code/signo.m}
+				\caption{Octave: /src/signo.m}
+				\label{code:signo}
+			\end{figure}
+
+			\begin{figure}[h]
+				\centering
+				\inputminted{octave}{./code/simple_perceptron_k.m}
+				\caption{Octave: /src/simple\_perceptron\_k.m}
+				\label{code:simple_perceptron}
+			\end{figure}
+
 		\subsection{Adaline}
 		\label{sec:adaline}
 
 			\paragraph{}
 			[TODO ]
 
+			\begin{figure}[h]
+				\centering
+				\inputminted{octave}{./code/adaline_k.m}
+				\caption{Octave: /src/adaline\_k.m}
+				\label{code:adalne}
+			\end{figure}
+
+
 	\section{Perceptrón Simple sobre conjunto de datos sencillo}
 	\label{sec:e1}
 
 		\paragraph{}
 		En esta sección se describe el experimento realizado utilizando la estrategia del \emph{perceptrón simple}. El conjunto de datos utilizado se muestra en la tabla \ref{table:e1_dataset}. Este conjunto de datos posee la característica de ser linealmente separable, tal y como se verá a continuación. Está formado por \textbf{8 instancias} formadas por \textbf{2 atributos} de carácter numérico. La clase de destino también es de carácter numérico, formada por el conjunto de valores $D = \{1,-1\}$. Puesto que este conjunto está formado por dos categorías, entonces se puede utilizar un único clasificador binario (perceptrón simple en este caso) para clasificar las instancias.
-
-		\paragraph{}
-		En este caso, debido al reducido tamaño del conjunto de datos, se ha realizado un experimento basado en el error de resustitución. Por lo tanto, se ha utilizado el $100\%$ de las instancias, tando para entrenamiento como para test.
 
 		\begin{table}[H]
 			\centering
@@ -74,7 +90,10 @@
 		\end{table}
 
 		\paragraph{}
-		Puesto que las el conjunto de datos es linealmente separable tal y como se ha indicado anteriormente (se puede apreciar en la figura \ref{fig:e1_plot}) y la metodología experimental seguida es se apoya en el error de resustitución. La tasa de error obtenida es del $0.0\%$ tal y como se muestra en la tabla \ref{table:e1_error}.
+		En este caso, debido al reducido tamaño del conjunto de datos, se ha realizado un experimento basado en el error de resustitución. Por lo tanto, se ha utilizado el $100\%$ de las instancias, tando para entrenamiento como para test. Para poder realizar comparaciones, en lugar de escoger de manera aleatoria los pesos iniciales se ha utilizado $W = [0.75,1]$ y $bias = -3$.
+
+		\paragraph{}
+		Puesto que instancias del conjunto de datos son linealmente separables tal y como se ha indicado anteriormente (se puede apreciar en la figura \ref{fig:e1_plot}) y la metodología experimental seguida es se apoya en el error de resustitución. La tasa de error obtenida es del $0.0\%$ tal y como se muestra en la tabla \ref{table:e1_error}.
 
 		\begin{figure}[h]
 			\begin{center}
@@ -109,7 +128,7 @@
 		\paragraph{}
 		La métodología experimental que se ha seguido ha sido un \textbf{HoldOut} con particionamiento de los datos de manera que $\frac{2}{3}$ son utilizados en la fase de entrenamiento y $\frac{1}{3}$ en la de test. Los resultados obtenidos tras dicha experimentación se recogen en la tabla \ref{table:e2_error}. Tal y como se puede apreciar, la tasa de error obtenida es muy elevada. Esto puede ser debido a la existencia de instancias muy diferentes unas de otras, lo cual penaliza drásticamente los resultados.
 
-		
+
 		\begin{table}[h]
 			\centering
 			\small
