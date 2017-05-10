@@ -104,20 +104,29 @@
 	\label{sec:e2}
 
 		\paragraph{}
-		[TODO]
+		En esta sección se describe el experimento realizado sobre el conjunto de datos \textbf{Computer Hardware}\cite{dataset:computer_hardware} y el algoritmo \textbf{Adaline}. Puesto que el algoritmo de aprendizaje realiza una regresión sobre los datos, para calcular la tasa de aciertos se ha utilizado como unidad de medida un \textbf{error relativo del $10\%$} sobre el valor real. Los parámetros utilizados para el ADALINE han sido un ratio de aprendizaje $\alpha = 0.1$ y $5000$ épocas.
 
-		\begin{table}
+		\paragraph{}
+		La métodología experimental que se ha seguido ha sido un \textbf{HoldOut} con particionamiento de los datos de manera que $\frac{2}{3}$ son utilizados en la fase de entrenamiento y $\frac{1}{3}$ en la de test. Los resultados obtenidos tras dicha experimentación se recogen en la tabla \ref{table:e2_error}. Tal y como se puede apreciar, la tasa de error obtenida es muy elevada. Esto puede ser debido a la existencia de instancias muy diferentes unas de otras, lo cual penaliza drásticamente los resultados.
+
+		
+		\begin{table}[h]
 			\centering
 			\small
 			\begin{tabu}{ | c | c | }
 				\hline
-				\multicolumn{2}{ | c | }{Adaline --- Machine Dataset} \\ \hline
+				\multicolumn{2}{ | c | }{Adaline --- Computer Hardware Dataset} \\ \hline
 				Error HoldOut & $71.429\%$	 \\
 				\hline
 			\end{tabu}
 			\caption{[TODO ]}
 			\label{table:e2_error}
 		\end{table}
+
+		\paragraph{}
+		Tras realizar un experimento que utilizara todo el conjunto de datos (tanto para entrenamiento como para test) el error obtenido se redujo a $0.0\%$. Esta tarea se ha llevado a cabo para comprobar la corrección de la implementación utilizada. Sin embargo, nótese que esta circunstancia no es significativa para comprobar la validez del clasificador ADALINE sobre el conjunto de datos Computer Hardware puesto que en un entorno real esta situación no es posible.
+
+
 
 %-----------------------------
 %	Bibliographic references
