@@ -21,7 +21,7 @@
 %-----------------------------
 
 	\begin{abstract}
-		\noindent [TODO ]
+		\noindent En este documento se realiza una descripción acerca de dos de las estrategias de aprendizaje basadas en redes neuronales de una única capa (monocapa). Se describe el funcionamiento del \emph{Perceptrón Simple} así como el \emph{ADALINE}. Además, se realiza una implementación en el lenguaje \emph{Octave} de las dos estrategias de aprendizaje para después utilizarla en dos ejemplos prácticos. El primero de ellos sobre un conjunto de datos Simple y el segundo a partir del conjunto de datos \emph{Computer Hardware}\cite{dataset:computer_hardware}.
 	\end{abstract}
 
 %-----------------------------
@@ -36,8 +36,7 @@
 		\label{sec:simple_perceptron}
 
 			\paragraph{}
-			[TODO ]
-
+			El perceptrón simple consiste en uno de los modelos de redes neuronales más simples que existen. Esta estrategia sigue el modelo descrito por \emph{McCulloch-Pitts}. Tiene el comportamiento de un clasificador binario, puesto que puede ser visto como una función $f(x)$ siendo $x$ el vector de dimensión $n$ que representa las instancias a clasificar. El dominio de aplicación de la función $f$ es el subconjunto $\{-1,1\}$, por lo que funciona como un clasificador binario. Nótese que para extender su funcionamiento a un mayor número de clases habría que utilizar estrategias complementarias como un perceptrón simple por clase o estrategias pareadas.
 
 			\begin{figure}[h]
 				\centering
@@ -45,6 +44,9 @@
 				\caption{Octave: /src/signo.m}
 				\label{code:signo}
 			\end{figure}
+
+			\paragraph{}
+			El motivo por el cual el dominio de aplicación es $\{-1,1\}$ viene dado por la función $F(x)$ utilizada para la clasificación, la cual se describe en la figura \ref{code:signo} mediante su implementación en Octave. La tarea de aprendizaje consiste en el \say{acercamiento} de la función $f(x)$ al valor esperado de los datos mediante la técnica del gradiente descendente, que ajusta los pesos de manera iterativa hasta que todas las instancias del conjunto de datos de entrenamiento son clasificadas de manera correcta. Dicha estrategia se muestra en la figura \ref{code:simple_perceptron}, que representa la fase de aprendizaje.
 
 			\begin{figure}[h]
 				\centering
@@ -57,13 +59,14 @@
 		\label{sec:adaline}
 
 			\paragraph{}
-			[TODO ]
+			La estrategia del \emph{ADALINE} es similar a la del Perceptrón Simple de manera conceptual, sin embargo en este caso en lugar de representar un clasificador, se representa una regresión. Por lo tanto, desde el punto de vista matemático, si se ve el \emph{ADALINE} como una función $f(x)$, el dominio de aplicación en este caso está formado por $R$. Esto se consigue sustituyendo la función signo descrita anteriormente por la función $F(x) = x$. El aprendizaje mediante esta estrategia se basa en la \emph{Regla Delta}, una técnica básada en el método del gradiente descendente. Por lo cuál, utiliza un aprendizaje iterativo determinado por el número de épocas y un coeficiente de aprendizaje. Esta estrategia se puede visualizar en la figura \ref{code:adaline} mediante su implementación en \emph{Octave}.
+
 
 			\begin{figure}[h]
 				\centering
 				\inputminted{octave}{./code/adaline_k.m}
 				\caption{Octave: /src/adaline\_k.m}
-				\label{code:adalne}
+				\label{code:adaline}
 			\end{figure}
 
 
@@ -119,7 +122,7 @@
 			\label{table:e1_error}
 		\end{table}
 
-	\section{Adaline sobre Machine Dataset}
+	\section{Adaline sobre Computer Hardware Dataset}
 	\label{sec:e2}
 
 		\paragraph{}
