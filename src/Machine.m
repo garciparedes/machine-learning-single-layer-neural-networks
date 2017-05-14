@@ -10,13 +10,15 @@
 function Machine()
 
   [A,B,X1, X2, X3, X4, X5, X6, X7, X8] = textread('./../datasets/machine.csv', '%s%s%f%f%f%f%f%f%f%f', 'delimiter', ',', 'HeaderLines',1);
+  dataset=horzcat( X1, X2, X3, X4, X5, X6, X7, X8);
 
+%{
+  Uncomment to use 'nominal attrs' as 'binary attrs'
   a = zeros(size(A,1),1);
   for i = 1:size(A,1)
     a(i) = strmatch(char(A(i,:)),unique(A), 'exact');
   end
   a_bin = a == unique(a)';
-
 
   b = zeros(size(B,1),1);
   for i = 1:size(B,1)
@@ -24,10 +26,8 @@ function Machine()
   end
   b_bin = b == unique(b)';
 
-
-  dataset=horzcat(a_bin, b_bin, X1, X2, X3, X4, X5, X6, X7, X8);
-  # dataset=csvread('./../datasets/machine.csv', 1, 2);
-  # TODO nominalToNumeric discrete attrs?
+  dataset=horzcat(a_bin, b_bin X1, X2, X3, X4, X5, X6, X7, X8);
+%}
 
   # Aislar x e y
 
@@ -78,21 +78,16 @@ function Machine()
 
   y_test=y_sort((hold_out_train+1):size(y)(1), 1:size(y)(2));
 
+  w=regresion_lineal_K(x_train_ampliado, y_train);
+  y_p=x_test_ampliado*w;
+  error_relativo=abs((y_test - y_p) ./ y_test).*100;
+  tasa_acierto_10=100*sum(error_relativo <= 10.0)/hold_out_test;
+  tasa_fallo_10=100-tasa_acierto_10
 
   w=adaline_k(x_train_ampliado, y_train, 5000);
-
-
-  # Salida REAL Test
-
   y_p=x_test_ampliado*w;
-
-  #Error
   error_relativo=abs((y_test - y_p) ./ y_test).*100;
-
-  # Tasa de Aciertos
   tasa_acierto_10=100*sum(error_relativo <= 10.0)/hold_out_test;
-
-  # Tasa de Error
   tasa_fallo_10=100-tasa_acierto_10
 
 %{
