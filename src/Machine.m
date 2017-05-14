@@ -95,11 +95,11 @@ function Machine()
   data_train=zeros(size(x_train)(1), size(x_train)(2)+1);
   data_train(1:size(data_train)(1), 1:(size(data_train)(2)-1))=x_train;
   data_train(1:size(data_train)(1), size(data_train)(2))=y_train;
-  csvwrite('data_wine_train_octave.csv', data_train);
+  csvwrite('./../datasets/machine-train.csv', data_train);
 
   data_test=zeros(size(x_test)(1), size(x_test)(2)+1);
   data_test(1:size(data_test)(1), 1:(size(data_test)(2)-1))=x_test;
   data_test(1:size(data_test)(1), size(data_test)(2))=y_test;
-  csvwrite('data_wine_test_octave.csv', data_test);
+  csvwrite('./../datasets/machine-test.csv', data_test);
 %}
 end
